@@ -21,6 +21,10 @@ public class TestDb extends AndroidTestCase {
 
     public static final String LOG_TAG = TestDb.class.getSimpleName();
 
+    public static String TEST_CITY_NAME = "North Pole";
+    static final String TEST_LOCATION = "99705";
+    static final String TEST_DATE = "20141205";
+
     public void testCreateDb() throws Throwable {
         mContext.deleteDatabase(WeatherDbHelper.DATABASE_NAME);
         SQLiteDatabase db = new WeatherDbHelper(this.mContext).getWritableDatabase();
@@ -37,7 +41,7 @@ public class TestDb extends AndroidTestCase {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         // Create a new map of values, where column names are the keys
-        ContentValues values = getLocationContentValues();
+        ContentValues values = createNorthPoleLocationValues();
 
         long locationRowId;
         locationRowId = db.insert(LocationEntry.TABLE_NAME, null, values);
@@ -81,21 +85,19 @@ public class TestDb extends AndroidTestCase {
         dbHelper.close();
     }
 
-    static public String TEST_CITY_NAME = "North Pole";
-
-    ContentValues getLocationContentValues() {
+    public static ContentValues createNorthPoleLocationValues() {
         ContentValues values = new ContentValues();
-        values.put(LocationEntry.COLUMN_LOCATION_SETTING, "99705");
+        values.put(LocationEntry.COLUMN_LOCATION_SETTING, TEST_LOCATION);
         values.put(LocationEntry.COLUMN_CITY_NAME, TEST_CITY_NAME);
         values.put(LocationEntry.COLUMN_COORD_LAT, 64.7488);
         values.put(LocationEntry.COLUMN_COORD_LONG, -147.353);
         return values;
     }
 
-    ContentValues getWeatherContentValues(long locationRowId) {
+    public static ContentValues getWeatherContentValues(long locationRowId) {
         ContentValues weatherValues = new ContentValues();
         weatherValues.put(WeatherEntry.COLUMN_LOC_KEY, locationRowId);
-        weatherValues.put(WeatherEntry.COLUMN_DATETEXT, "20141205");
+        weatherValues.put(WeatherEntry.COLUMN_DATETEXT, TEST_DATE);
         weatherValues.put(WeatherEntry.COLUMN_DEGREES, 1.1);
         weatherValues.put(WeatherEntry.COLUMN_HUMIDITY, 1.2);
         weatherValues.put(WeatherEntry.COLUMN_PRESSURE, 1.3);
@@ -108,7 +110,7 @@ public class TestDb extends AndroidTestCase {
         return weatherValues;
     }
 
-    static void validateCursor(Cursor valueCursor, ContentValues expectedValues) {
+    public static void validateCursor(Cursor valueCursor, ContentValues expectedValues) {
 
         assertTrue(valueCursor.moveToFirst());
 
