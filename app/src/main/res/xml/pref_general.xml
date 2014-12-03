@@ -13,7 +13,7 @@
     <ListPreference
         android:key="@string/pref_units_key"
         android:title="@string/pref_units_label"
-        android:defaultValue="@string/pref_units_metric_value"
+        android:defaultValue="@string/pref_units_metric"
         android:summary="%s"
         android:entries="@array/pref_units_options"
         android:entryValues="@array/pref_units_values" />

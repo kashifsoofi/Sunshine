@@ -40,7 +40,6 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
                 WeatherEntry.COLUMN_DATETEXT + " TEXT NOT NULL, " +
                 WeatherEntry.COLUMN_WEATHER_ID + " TEXT NOT NULL, " +
                 WeatherEntry.COLUMN_SHORT_DESC + " TEXT NOT NULL, " +
-                WeatherEntry.COLUMN_LONG_DESC + " TEXT NOT NULL, " +
 
                 WeatherEntry.COLUMN_MIN_TEMP + " REAL NOT NULL, " +
                 WeatherEntry.COLUMN_MAX_TEMP + " REAL NOT NULL, " +

@@ -239,7 +239,6 @@ public class TestProvider extends AndroidTestCase {
         weatherValues.put(WeatherEntry.COLUMN_MAX_TEMP, 85);
         weatherValues.put(WeatherEntry.COLUMN_MIN_TEMP, 35);
         weatherValues.put(WeatherEntry.COLUMN_SHORT_DESC, "Cats and Dogs");
-        weatherValues.put(WeatherEntry.COLUMN_LONG_DESC, "Cats and Dogs");
         weatherValues.put(WeatherEntry.COLUMN_WIND_SPEED, 3.4);
         weatherValues.put(WeatherEntry.COLUMN_WEATHER_ID, 42);
 
