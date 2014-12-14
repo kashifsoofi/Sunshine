@@ -15,8 +15,16 @@ public class DetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         if (savedInstanceState == null) {
+            String date = getIntent().getStringExtra(DATE_KEY);
+
+            Bundle args = new Bundle();
+            args.putString(DATE_KEY, date);
+
+            DetailFragment fragment = new DetailFragment();
+            fragment.setArguments(args);
+
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new DetailFragment())
+                    .add(R.id.weather_detail_container, fragment)
                     .commit();
         }
     }

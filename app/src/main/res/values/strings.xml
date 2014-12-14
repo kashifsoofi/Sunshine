@@ -28,14 +28,6 @@
 
     <string name="pref_units_metric">1</string>
     <string name="pref_units_imperial">2</string>
-    <string-array name="pref_units_options">
-        <item>@string/pref_units_metric_label</item>
-        <item>@string/pref_units_imperial_label</item>
-    </string-array>
-    <string-array name="pref_units_values">
-        <item>@string/pref_units_metric</item>
-        <item>@string/pref_units_imperial</item>
-    </string-array>
 
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
