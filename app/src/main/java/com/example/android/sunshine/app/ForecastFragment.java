@@ -25,6 +25,7 @@ import com.example.android.sunshine.app.data.WeatherContract;
 import com.example.android.sunshine.app.data.WeatherContract.LocationEntry;
 import com.example.android.sunshine.app.data.WeatherContract.WeatherEntry;
 import com.example.android.sunshine.app.service.SunshineService;
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 
 import java.util.Date;
 import java.util.List;
@@ -133,17 +134,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     }
 
     private void updateWeather() {
-        Intent alarmIntent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
-        alarmIntent.putExtra(SunshineService.LOCATION_QUERY_EXTRA, mLocation);
-
-        PendingIntent pi = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent,
-                PendingIntent.FLAG_ONE_SHOT);
-        AlarmManager am = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime() + 5 * 1000, pi);
-
-        Intent service = new Intent(getActivity(), SunshineService.class);
-        service.putExtra(SunshineService.LOCATION_QUERY_EXTRA, mLocation);
-        getActivity().startService(service);
+        SunshineSyncAdapter.syncImmediately(getActivity());
     }
 
     @Override
