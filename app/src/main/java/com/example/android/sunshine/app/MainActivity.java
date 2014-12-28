@@ -2,11 +2,7 @@ package com.example.android.sunshine.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -15,7 +11,7 @@ import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 
 public class MainActivity extends Activity implements ForecastFragment.Callback {
 
-    private final String LOG_TAG = MainActivity.class.getSimpleName();
+    //private final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private boolean mTwoPane;
 
