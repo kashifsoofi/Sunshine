@@ -1,18 +1,13 @@
 package com.example.android.sunshine.app;
 
-import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.LoaderManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,15 +21,10 @@ import android.widget.ListView;
 import com.example.android.sunshine.app.data.WeatherContract;
 import com.example.android.sunshine.app.data.WeatherContract.LocationEntry;
 import com.example.android.sunshine.app.data.WeatherContract.WeatherEntry;
-import com.example.android.sunshine.app.service.SunshineService;
 import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 
 import java.util.Date;
-import java.util.List;
 
-/**
- * Created by kashif on 19/11/14.
- */
 public class ForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private final String LOG_TAG = ForecastFragment.class.getSimpleName();
@@ -61,12 +51,12 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     };
 
     // Indices tied to FORECAST_COLUMNS
-    public static final int COL_WEATHER_ID = 0;
+    // public static final int COL_WEATHER_ID = 0;
     public static final int COL_WEATHER_DATE = 1;
     public static final int COL_WEATHER_DESC = 2;
     public static final int COL_WEATHER_MAX_TEMP = 3;
     public static final int COL_WEATHER_MIN_TEMP = 4;
-    public static final int COL_LOCATION_SETTING = 5;
+    // public static final int COL_LOCATION_SETTING = 5;
     public static final int COL_WEATHER_CONDITION_ID = 6;
     public static final int COL_COORD_LAT = 7;
     public static final int COL_COORD_LONG = 8;
